@@ -1,5 +1,6 @@
  Banking Transaction Queue System
- A simple **Banking Transaction Management System** using **Queue (Array Implement
+
+ A simple **Banking Transaction Management System** using **Queue (Array Implementation)** in C
 
 **Queue | FIFO | Menu-Driven | Transaction Processing**
 
@@ -13,8 +14,9 @@ It uses the concept of **Queue (FIFO – First In First Out)** where:
 * The first transaction entered is processed first
 * Ensures fairness in transaction handling
 
+---
 
-## Features
+##  Features
 
 | Feature                 | Description                               |
 | ----------------------- | ----------------------------------------- |
@@ -24,51 +26,61 @@ It uses the concept of **Queue (FIFO – First In First Out)** where:
 | **Transaction Types**   | Deposit / Withdraw handling               |
 | **Menu Driven**         | User-friendly interaction                 |
 
+---
 
 ##  Tech Stack
 
-
+```
 +------------------+------------------+------------------+
 |   Programming    | Data Structure   |    Approach      |
 +------------------+------------------+------------------+
 |        C         |      Queue       |  Menu Driven     |
 |    Language      |   (Array Based)  |  Step-by-Step    |
 +------------------+------------------+------------------+
-
+```
 
 * **Language**: C
 * **Compiler/IDE**: Dev-C++
 * **Data Structure**: Queue (Array Implementation)
 * **Concept Used**: FIFO
 
+---
 
-##  Data Structure Used
+## Data Structure Used
 
 ### Queue (FIFO)
 
+```
 FRONT → [Customer1] [Customer2] [Customer3] ← REAR
+```
+
 Each customer contains:
 
+```
 ┌────────────┬──────────────┬──────────────┬────────────┐
 │ acc_no     │ name         │ type         │ amount     │
 ├────────────┼──────────────┼──────────────┼────────────┤
 │ int        │ char[50]     │ char[10]     │ float      │
 └────────────┴──────────────┴──────────────┴────────────┘
+```
+
+---
+
 ##  Key Concepts Applied
 
 *  **Queue Operations** — enqueue & dequeue
 *  **FIFO Principle** — First transaction processed first
 *  **Structures** — organized data using `struct`
 *  **Menu Driven Programming**
-*  **String Handling** — `strcmp()` for transaction type
+---
 
-## Installation & Usage (Dev-C++)
+## ⚙️ Installation & Usage (Dev-C++)
 
 ### Step 1: Open Dev-C++
 
 * Create new **C file**
 
-### Step 2: Write Code
+### Step 2:Write Code
 
 * Write your program into editor
 
@@ -80,6 +92,7 @@ Each customer contains:
 
 ## Sample Output
 
+```
 Menu
 1-Enqueue Transaction
 2-Dequeue (Process)
@@ -87,16 +100,19 @@ Menu
 4-Exit
 Enter choice: 1
 
-Enter Account No: 123456
+Enter Account No: 1233456
 Enter Name: Laveena
 Enter Transaction Type: deposit
 Enter Amount: 5000
 
 Transaction Added
+```
 
+---
 
 ## Project Workflow
 
+```
            ┌───────────────────────────┐
            │        MAIN MENU          │
            │ 1-Enqueue 2-Dequeue       │
@@ -109,3 +125,5 @@ Transaction Added
    │ ENQUEUE  │   │ DEQUEUE  │   │ DISPLAY  │
    │ Add Data │   │ Process  │   │ Show All │
    └──────────┘   └──────────┘   └──────────┘
+```
+
