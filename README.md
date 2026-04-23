@@ -74,7 +74,7 @@ Each customer contains:
 *  **Menu Driven Programming**
 ---
 
-## ⚙️ Installation & Usage (Dev-C++)
+##  Installation & Usage (Dev-C++)
 
 ### Step 1: Open Dev-C++
 
