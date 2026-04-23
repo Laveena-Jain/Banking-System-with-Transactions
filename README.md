@@ -1,133 +1,111 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#define MAX 5
-typedef struct customer {
-    int acc_no;
-    char name[50];
-    char type[10]; 
-    float amount;
-} customer;
+ Banking Transaction Queue System
+ A simple **Banking Transaction Management System** using **Queue (Array Implement
 
-typedef struct queue {
-    customer data[MAX];
-    int front, rear;
-} queue;
+**Queue | FIFO | Menu-Driven | Transaction Processing**
 
-void init(queue *q) {
-    q->front = -1;
-    q->rear = -1;
-}
 
-int isempty(queue *q) {
-    if (q->front == -1 || q->front > q->rear)
-        return 1;
-    else
-        return 0;
-}
+##  About the Project
 
-void enqueue(queue *q) {
-    customer c;
+The **Banking Transaction Queue System** is a console-based application developed in **C** that simulates how banking transactions are processed in real life.
 
-    if (q->rear == MAX - 1) {
-        printf("Queue Full\n");
-        return;
-    }
+It uses the concept of **Queue (FIFO – First In First Out)** where:
 
-    printf("Enter Account No: ");
-    scanf("%d", &c.acc_no);
+* The first transaction entered is processed first
+* Ensures fairness in transaction handling
 
-    printf("Enter Name: ");
-    scanf("%s", c.name);
 
-    printf("Enter Transaction Type (deposit/withdraw): ");
-    scanf("%s", c.type);
+## Features
 
-    printf("Enter Amount: ");
-    scanf("%f", &c.amount);
+| Feature                 | Description                               |
+| ----------------------- | ----------------------------------------- |
+| **Add Transaction**     | Insert new customer transaction (enqueue) |
+| **Process Transaction** | Remove & process transaction (dequeue)    |
+| **Display Queue**       | View all pending transactions             |
+| **Transaction Types**   | Deposit / Withdraw handling               |
+| **Menu Driven**         | User-friendly interaction                 |
 
-    if (q->front == -1)
-        q->front = 0;
 
-    q->rear++;
-    q->data[q->rear] = c;
+##  Tech Stack
 
-    printf("Transaction Added\n");
-}
 
-void dequeue(queue *q) {
-    if (isempty(q)) {
-        printf("No Transactions\n");
-        return;
-    }
++------------------+------------------+------------------+
+|   Programming    | Data Structure   |    Approach      |
++------------------+------------------+------------------+
+|        C         |      Queue       |  Menu Driven     |
+|    Language      |   (Array Based)  |  Step-by-Step    |
++------------------+------------------+------------------+
 
-    customer c = q->data[q->front];
 
-    printf("\nProcessing Transaction:\n");
-    printf("Acc No: %d\n", c.acc_no);
-    printf("Name: %s\n", c.name);
+* **Language**: C
+* **Compiler/IDE**: Dev-C++
+* **Data Structure**: Queue (Array Implementation)
+* **Concept Used**: FIFO
 
-    if (strcmp(c.type, "deposit") == 0) {
-        printf("Deposit of %.2f successful\n", c.amount);
-    }
-    else if (strcmp(c.type, "withdraw") == 0) {
-        printf("Withdrawal of %.2f successful\n", c.amount);
-    }
-    else {
-        printf("Invalid Transaction Type\n");
-    }
 
-    q->front++;
-}
+##  Data Structure Used
 
-void display(queue *q) {
-    int i;
+### Queue (FIFO)
 
-    if (isempty(q)) {
-        printf("Queue Empty\n");
-        return;
-    }
+FRONT → [Customer1] [Customer2] [Customer3] ← REAR
+Each customer contains:
 
-    printf("\nPending Transactions:\n");
-    for (i = q->front; i <= q->rear; i++) {
-        printf("%d %s %s %.2f\n",
-               q->data[i].acc_no,
-               q->data[i].name,
-               q->data[i].type,
-               q->data[i].amount);
-    }
-}
+┌────────────┬──────────────┬──────────────┬────────────┐
+│ acc_no     │ name         │ type         │ amount     │
+├────────────┼──────────────┼──────────────┼────────────┤
+│ int        │ char[50]     │ char[10]     │ float      │
+└────────────┴──────────────┴──────────────┴────────────┘
+##  Key Concepts Applied
 
-int main() {
-    queue q;
-    int ch;
+*  **Queue Operations** — enqueue & dequeue
+*  **FIFO Principle** — First transaction processed first
+*  **Structures** — organized data using `struct`
+*  **Menu Driven Programming**
+*  **String Handling** — `strcmp()` for transaction type
 
-    init(&q);
+## Installation & Usage (Dev-C++)
 
-    while (1) {
-        printf("\nMenu\n1-Enqueue Transaction\n2-Dequeue (Process)\n3-Display\n4-Exit\nEnter choice: ");
-        scanf("%d", &ch);
+### Step 1: Open Dev-C++
 
-        if (ch == 4)
-            break;
+* Create new **C file**
 
-        switch (ch) {
-            case 1:
-                enqueue(&q);
-                break;
+### Step 2: Write Code
 
-            case 2:
-                dequeue(&q);
-                break;
+* Write your program into editor
 
-            case 3:
-                display(&q);
-                break;
+### Step 3: Compile & Run
 
-            default:
-                printf("Invalid Choice\n");
-        }
-    }
+* Press **F11** or click **Compile & Run**
 
-    return 0;
-}
+---
+
+## Sample Output
+
+Menu
+1-Enqueue Transaction
+2-Dequeue (Process)
+3-Display
+4-Exit
+Enter choice: 1
+
+Enter Account No: 123456
+Enter Name: Laveena
+Enter Transaction Type: deposit
+Enter Amount: 5000
+
+Transaction Added
+
+
+## Project Workflow
+
+           ┌───────────────────────────┐
+           │        MAIN MENU          │
+           │ 1-Enqueue 2-Dequeue       │
+           │ 3-Display 4-Exit          │
+           └────────────┬──────────────┘
+                        │
+        ┌───────────────┼───────────────┐
+        ▼               ▼               ▼
+   ┌──────────┐   ┌──────────┐   ┌──────────┐
+   │ ENQUEUE  │   │ DEQUEUE  │   │ DISPLAY  │
+   │ Add Data │   │ Process  │   │ Show All │
+   └──────────┘   └──────────┘   └──────────┘
